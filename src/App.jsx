@@ -4,14 +4,14 @@ import Form from "./Form"
 import Values from "values.js"
 
 const App = () => {
-  const [colors, setColors] = useState()
+  const [colors, setColors] = useState(new Values("#1f45").all(10))
+
   // This show different list of colors relating to the input. from light to dark
-  console.log(new Values("#0000").all(10))
 
   return (
     <section>
       <Form />
-      <ColorList />
+      <ColorList colors={colors} />
     </section>
   )
 }
