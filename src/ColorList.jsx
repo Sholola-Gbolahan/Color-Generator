@@ -5,8 +5,8 @@ import { nanoid } from "nanoid"
 const ColorList = ({ colors }) => {
   return (
     <section className="colors">
-      {colors.map((color) => {
-        return <SingleColor key={nanoid} color={color} />
+      {colors.map((color, index) => {
+        return <SingleColor key={nanoid} index={index} color={color} />
       })}
     </section>
   )

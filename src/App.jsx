@@ -7,13 +7,22 @@ import { ToastContainer, toast } from "react-toastify"
 const App = () => {
   const [colors, setColors] = useState(new Values("#1f45").all(10))
 
-  toast.error("Error")
-  toast.success("success")
+  const addColor = (color) => {
+    try {
+      const newColors = new Values(color).all(1)
+      setColors(newColors)
+      toast.success("Color Generated")
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+  // toast.error("Error")
+  // toast.success("success")
   return (
     <section>
-      <Form />
+      <Form addColor={addColor} />
       <ColorList colors={colors} />
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-right" />
     </section>
   )
 }
